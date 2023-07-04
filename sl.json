@@ -1,5 +1,6 @@
 {
   "dpkg": "https://github.com/fetuber4095/ResidentFlash/raw/main/packages/dpkg",
   "dd": "https://github.com/fetuber4095/ResidentFlash/raw/main/packages/dd",
+  "df": "https://github.com/fetuber4095/ResidentFlash/raw/main/applications/df",
   "uname": "https://github.com/fetuber4095/ResidentFlash/raw/main/applications/uname"
 }
