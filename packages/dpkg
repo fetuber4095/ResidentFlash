@@ -1,0 +1,54 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#  dpkg
+#  
+#  Copyright 2023 Felipe Souza <lubuntu@lubuntu>
+#  
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#  
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#  MA 02110-1301, USA.
+#  
+#  
+
+class dpkg:
+	def __init__(self, package):
+		if self.loadMirrors():
+			if package != "": self.get_package(package)			
+			else: print("ash: dpkg: missing package name")
+		else: print(f"ash: dpkg: fail to attemp dpkg mirrors [Error 86]")
+		
+	def loadMirrors(self):
+		try: self.mirror = json.load(open(f"{root}/proc/pool/sl.json", "r"))
+		except FileNotFoundError: 
+			if self.downloadMirrors(): 
+				print(f"ash: sl: fixed missing mirrors file. running")
+				
+				return True
+			return False
+		
+		return True
+	def downloadMirrors(self):
+		try: urllib.request.urlretrieve(vmlinux['sl-mirror'], f"{root}/proc/pool/sl.json")
+		except: return False
+		
+		return True
+		
+	def get_package(self, package):
+		if package in self.mirror:
+			if wget(package, f"{package}"): print(f"ash: dpkg: '{package}' donwloaded.")
+			else: print(f"ash: dpkg: fail to donwload package")
+		else: print(f"ash: sl: '{package}' not found")
+
+dpkg(cmd)
