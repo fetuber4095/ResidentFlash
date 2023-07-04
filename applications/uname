@@ -36,6 +36,6 @@ if cmd != "":
         print("Release:", release)
         print("Version:", version)
         print("Machine:", machine)
-    elif "-r": in cmd: print(release)
+    elif "-r" in cmd: print(release)
 
-else: print(release)
+else: print(system, release)
