@@ -58,6 +58,6 @@ class dpkg:
             else:
                 print(f"ash: dpkg: fail to download package")
         else:
-            print(f"ash: sl: '{package}' not found")
+            print(f"ash: dpkg: '{package}' not found")
 
 dpkg(cmd)
