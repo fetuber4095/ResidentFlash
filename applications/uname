@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  dd
+#  uname
 #  
 #  Copyright 2023 Felipe Souza <lubuntu@lubuntu>
 #  
@@ -22,19 +22,20 @@
 #  
 #  
 
-class threading_application:
-    def __init__(self):
-        self.characters = [
-            "0", "1", "0", "1", "(", ")", "[", "]",
-            "!", "@", "#", "&", "/", ".", "0", "1",
-            " ", " ", " ", " ", " ", " ", " ", " ", 
-            " ", " ", " ", " ", " ", " ", " ", " "      
-        ]
 
-        while True:
-            try: print(f"\033[32m{choice(self.characters)}", end="")
-            except: break
-        
-        print("\033[m")
-    
-threading_application()
+system = platform.system()
+node = platform.node()
+release = platform.release()
+version = platform.version()
+machine = platform.machine()
+
+if cmd != "":
+    if "-a" in cmd:
+        print("System:", system)
+        print("Node:", node)
+        print("Release:", release)
+        print("Version:", version)
+        print("Machine:", machine)
+    elif "-r": in cmd: print(release)
+
+else: print(release)
