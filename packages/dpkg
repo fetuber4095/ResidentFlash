@@ -23,32 +23,41 @@
 #  
 
 class dpkg:
-	def __init__(self, package):
-		if self.loadMirrors():
-			if package != "": self.get_package(package)			
-			else: print("ash: dpkg: missing package name")
-		else: print(f"ash: dpkg: fail to attemp dpkg mirrors [Error 86]")
-		
-	def loadMirrors(self):
-		try: self.mirror = json.load(open(f"{root}/proc/pool/sl.json", "r"))
-		except FileNotFoundError: 
-			if self.downloadMirrors(): 
-				print(f"ash: sl: fixed missing mirrors file. running")
-				
-				return True
-			return False
-		
-		return True
-	def downloadMirrors(self):
-		try: urllib.request.urlretrieve(vmlinux['sl-mirror'], f"{root}/proc/pool/sl.json")
-		except: return False
-		
-		return True
-		
-	def get_package(self, package):
-		if package in self.mirror:
-			if wget(package, f"{package}"): print(f"ash: dpkg: '{package}' donwloaded.")
-			else: print(f"ash: dpkg: fail to donwload package")
-		else: print(f"ash: sl: '{package}' not found")
+    def __init__(self, package):
+        if self.loadMirrors():
+            if package != "":
+                self.get_package(package)            
+            else:
+                print("ash: dpkg: missing package name")
+        else:
+            print(f"ash: dpkg: fail to attempt dpkg mirrors [Error 86]")
+
+    def loadMirrors(self):
+        try:
+            self.mirror = json.load(open(f"{root}/proc/pool/sl.json", "r"))
+        except FileNotFoundError:
+            if self.downloadMirrors():
+                print(f"ash: sl: fixed missing mirrors file. running")
+                return True
+            return False
+
+        return True
+
+    def downloadMirrors(self):
+        try:
+            urllib.request.urlretrieve(self.mirror['sl-mirror'], f"{root}/proc/pool/sl.json")
+        except:
+            return False
+
+        return True
+
+    def get_package(self, package):
+        if package in self.mirror:
+            if urllib.request.urlretrieve(self.mirror[package], f"{root}/proc/lib/{package}"):
+                print(f"ash: dpkg: '{package}' downloaded.")
+            else:
+                print(f"ash: dpkg: fail to download package")
+        else:
+            print(f"ash: sl: '{package}' not found")
 
 dpkg(cmd)
