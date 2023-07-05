@@ -47,7 +47,7 @@ class dpkg:
 
     def get_package(self, package):
         if package in self.mirror:
-            if urllib.request.urlretrieve(self.mirror[package], f"{root}/proc/lib/{package}"): print(f"ash: dpkg: '{package}' downloaded.")
+            if urllib.request.urlretrieve(self.mirror[package], f"{package}"): print(f"ash: dpkg: '{package}' downloaded.")
             else:  print(f"ash: dpkg: fail to download package")
         else: print(f"ash: dpkg: '{package}' not found")
 
