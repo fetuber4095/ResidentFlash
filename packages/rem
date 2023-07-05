@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#  rem
+#  
+#  Copyright 2023 Felipe Souza <fetuber4095@lubuntu>
+#  
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#  
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#  MA 02110-1301, USA.
+#  
+# 
+
+if cmd != "":
+	if cmd.startswith("--show") or cmd.startswith("-s"): 
+		for cache in rem: print(cache)
+	elif cmd.startswith("--reset"): rem = []
+	elif cmd.startswith("--help"):
+		print("Usage: rem [Operation] [TEXT]...\n")
+		print(f"      --show		Show all values loaded")
+		print(f"      --reset		Delete all values loaded")
+		print(f"      --help		Show this help message")
+		print("\nREM saves values into local session envirronment")
+
+	else: 
+		if cmd != "": rem.append(cmd)
+else:
+	print("rem: missing argument")
+	print("Try 'rem --help' for more informations")
