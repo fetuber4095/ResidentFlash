@@ -40,8 +40,8 @@ if cmd != "":
 	filename = cmd
 	lines, words, characters = wc(filename)
 
-	print("Lines:", lines)
-	print("Words:", words)
-	print("Characters:", characters)
+	print(f"[Lines]       {lines}")
+	print(f"[Words]       {words}")
+	print(f"[Characters]  {characters}")
 
 else: print("ash: wc: missing filename")
