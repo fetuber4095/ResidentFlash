@@ -43,3 +43,5 @@ if cmd != "":
 	print("Lines:", lines)
 	print("Words:", words)
 	print("Characters:", characters)
+
+else: print("ash: wc: missing filename")
