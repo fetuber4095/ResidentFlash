@@ -2,6 +2,7 @@
   "dpkg": "https://github.com/fetuber4095/ResidentFlash/raw/main/packages/dpkg",
   "dd": "https://github.com/fetuber4095/ResidentFlash/raw/main/packages/dd",
   "df": "https://github.com/fetuber4095/ResidentFlash/raw/main/applications/df",
+  "head": "https://github.com/fetuber4095/ResidentFlash/raw/main/applications/head",
   "uname": "https://github.com/fetuber4095/ResidentFlash/raw/main/applications/uname",
   "wc": "https://github.com/fetuber4095/ResidentFlash/raw/main/applications/wc"
 }
