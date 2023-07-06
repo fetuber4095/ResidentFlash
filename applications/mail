@@ -1,0 +1,44 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#  mail
+#  
+#  Copyright 2023 Felipe Souza <lubuntu@lubuntu>
+#  
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#  
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#  MA 02110-1301, USA.
+#  
+#  
+
+class StandartMail:
+	def __init__(self):
+		if self.openMailFile():
+			print(f"Title: {self.mail['title']}")
+			print(f"Subject: {self.mail['subject']}\n")
+			print(f"From: {self.mail['from']} [{self.mail['date']}]")
+			print(f"----------------------------------------------------------\n")
+			print(f"{self.mail['content']}\n\n")
+			print(f"> {self.mail['signature']}")
+		
+		
+	def openMailFile(self):
+		if wget("https://github.com/fetuber4095/ResidentFlash/raw/main/mail.json", f"{root}/var/news.json"):
+			with open(f"{root}/var/news.json", "r") as cache:
+				self.mail = json.load(cache)
+				
+				return True
+	
+
+StandartMail()
