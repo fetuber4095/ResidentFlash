@@ -35,6 +35,4 @@ if cmd != "":
 
 	else: 
 		if cmd != "": rem.append(cmd)
-else:
-	print("rem: missing argument")
-	print("Try 'rem --help' for more informations")
+else: missing("rem")

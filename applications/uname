@@ -22,26 +22,19 @@
 #  
 #  
 
-
-system = platform.system()
-node = platform.node()
-release = platform.release()
-sysver = platform.version()
-machine = platform.machine()
-
 if cmd != "":
     if "-a" in cmd:
-        print("System:", system)
-        print("Node:", node)
-        print("Release:", release)
-        print("Version:", sysver)
-        print("Machine:", machine)
+        print(f"System: {platform.system()}")
+        print(f"Node: {platform.node()}")
+        print(f"Release: {platform.release()}")
+        print(f"Version: {platform.version()}")
+        print(f"Machine: {platform.machine()}")
         
-    elif "-s" in cmd: print(system)
-    elif "-n" in cmd: print(node)
-    elif "-r" in cmd: print(release)
-    elif "-v" in cmd: print(sysver)
-    elif "-m" in cmd: print(machine)
+    elif "-s" in cmd: print(platform.system())
+    elif "-n" in cmd: print(platform.node())
+    elif "-r" in cmd: print(platform.release())
+    elif "-v" in cmd: print(platform.version())
+    elif "-m" in cmd: print(platform.machine())
 
     else: print(system, release)
         

@@ -39,6 +39,6 @@ class StandartMail:
 				self.mail = json.load(cache)
 				
 				return True
-	
+		else: print("ash: mail: failed to acess the mail message")
 
 StandartMail()
