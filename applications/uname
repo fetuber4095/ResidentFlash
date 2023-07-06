@@ -26,7 +26,7 @@
 system = platform.system()
 node = platform.node()
 release = platform.release()
-version = platform.version()
+sysver = platform.version()
 machine = platform.machine()
 
 if cmd != "":
@@ -34,13 +34,13 @@ if cmd != "":
         print("System:", system)
         print("Node:", node)
         print("Release:", release)
-        print("Version:", version)
+        print("Version:", sysver)
         print("Machine:", machine)
         
     elif "-s" in cmd: print(system)
     elif "-n" in cmd: print(node)
     elif "-r" in cmd: print(release)
-    elif "-v" in cmd: print(version)
+    elif "-v" in cmd: print(sysver)
     elif "-m" in cmd: print(machine)
 
     else: print(system, release)
