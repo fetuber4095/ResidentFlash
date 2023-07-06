@@ -1,6 +1,6 @@
 {
-  "head": "The Standart Mail",
-  "description": "This is the first announcement of Standart Mail",
+  "title": "The Standart Mail",
+  "subject": "This is the first announcement of Standart Mail",
 
   "from": "[Owner] Felipe Souza",
   "to": "Standart users",
