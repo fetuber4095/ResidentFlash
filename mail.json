@@ -1,11 +1,11 @@
 {
-  "title": "The Standart Mail",
-  "subject": "This is the first announcement of Standart Mail",
+  "title": "Colors Party",
+  "subject": "Standart 1.2.1 release Colorama! The Terminal color api",
 
   "from": "(Owner) Felipe Souza",
-  "date": "Thu Jul  6 09:14:54 2023",
+  "date": "Thu Jul  6 22:07:15 2023",
   "to": "Standart users",
   
-  "content": "Hey how's it going? I'm here to introduce Standard Mail\na tool that will be native from now on in the software\nand I will use it to make announcements to users\nthat's why I think it's important from time to time that \nyou open yourcomputers to read these messages.\n\nPS: I intend to bring first hand information here",
+  "content": "An update say goodbye to the over, it was released now!\nThe Standard 1.2.1 add Colorama api, with this feature\nwill can charge style of texts and Terminal usage\n\nRun 'sync' and update your Standard",
   "signature": "FeTuber4095"
 }
