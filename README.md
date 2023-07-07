@@ -56,10 +56,10 @@ a file. See the colors code below:
 &sublime
 ```
 And you can use & to get other values on your text. See codes below:
-`&appname` Replaced by name of vmlinux
-`&version` Replaced by version of vmlinux
-`&hostname` Replaced by name of computer
-`&ipadress` Replaced by ip adress of computer
-`&system` Replaced by installed system on your computer
-`&root` Replaced by vmlinux installation path 
-`&time` Replaced by current time
+- `&appname` Replaced by name of vmlinux
+- `&version` Replaced by version of vmlinux
+- `&hostname` Replaced by name of computer
+- `&ipadress` Replaced by ip adress of computer
+- `&system` Replaced by installed system on your computer
+- `&root` Replaced by vmlinux installation path 
+- `&time` Replaced by current time
