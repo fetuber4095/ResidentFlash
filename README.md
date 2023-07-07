@@ -40,3 +40,26 @@ Available commands for Standart v1.2
 - `install [filename]` Install your python code as a Standart Package
 - `help [document]` Show help document 
 - `mail` Show announcements from development team
+
+## Interactive Colors on Terminal
+If you're trying use colors on Terminal, Standart have this function,
+it's work on `echo` to print your text and `cat` that show a content of 
+a file. See the colors code below:
+
+```
+&black	 &red		
+&green	 &yellow
+&blue    &purple
+&cian    &white
+
+&bold    &italic
+&sublime
+```
+And you can use & to get other values on your text. See codes below:
+`&appname` Replaced by name of vmlinux
+`&version` Replaced by version of vmlinux
+`&hostname` Replaced by name of computer
+`&ipadress` Replaced by ip adress of computer
+`&system` Replaced by installed system on your computer
+`&root` Replaced by vmlinux installation path 
+`&time` Replaced by current time
