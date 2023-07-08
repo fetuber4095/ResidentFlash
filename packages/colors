@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  hi
+#  colors
 #  
 #  Copyright 2023 Felipe Souza <lubuntu@lubuntu>
 #  
@@ -23,4 +23,15 @@
 #  
 
 print(recognize("&boldHello, World!"))
-print(recognize("It's a test of Standart Colorama.&non-style"))
+print(recognize("It's a test of Standart Colorama.&non-style\n"))
+print(recognize("&red Red Text"))
+print(recognize("&green Green Text"))
+print(recognize("&yellow Yellow Text"))
+print(recognize("&blue Blue Text"))
+print(recognize("&purple Purple Text"))
+print(recognize("&cian Light Blue (cian) Text"))
+print(recognize("&white (white) Default Style - White Text"))
+print(recognize("\n&bold Bold Text"))
+print(recognize("&italic Italic Text"))
+print(recognize("&sublime Text with underline"))
+print(recognize("&non-style Text without styles"))
