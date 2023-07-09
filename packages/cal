@@ -1,0 +1,63 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#  cal
+#  
+#  Copyright 2023 Felipe Souza <lubuntu@lubuntu>
+#  
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#  
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#  MA 02110-1301, USA.
+#  
+#  
+
+try:
+    import sys
+    from PyQt5 import QtCore, QtGui, QtWidgets
+    from PyQt5.QtWidgets import QApplication, QMainWindow
+
+    global Ui_windowApplication
+
+    class Ui_windowApplication(object):
+        def setupUi(self, windowApplication):
+            windowApplication.setObjectName("windowApplication")
+            windowApplication.resize(727, 324)
+            self.calendarWidget = QtWidgets.QCalendarWidget(windowApplication)
+            self.calendarWidget.setGeometry(QtCore.QRect(10, 10, 712, 304))
+            self.calendarWidget.setObjectName("calendarWidget")
+
+            self.retranslateUi(windowApplication)
+            QtCore.QMetaObject.connectSlotsByName(windowApplication)
+
+        def retranslateUi(self, windowApplication):
+            _translate = QtCore.QCoreApplication.translate
+            windowApplication.setWindowTitle(_translate("windowApplication", "Calendar"))
+
+
+    class MyApplication(QMainWindow):
+        def __init__(self):
+            super().__init__()
+
+            self.ui = Ui_windowApplication()
+            self.ui.setupUi(self)
+
+
+    app = QApplication(sys.argv)
+    window = MyApplication()
+    window.show(), app.exec_()
+
+except (ModuleNotFoundError, NameError): 
+    try: standart("cal -py ispython")
+    except: print("qt-sdk: you need install 'pyqt5' python module to run this application")
+    
