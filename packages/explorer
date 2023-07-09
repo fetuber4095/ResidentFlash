@@ -22,11 +22,11 @@
 #  
 #  
 
-import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QTreeView, QFileSystemModel
-from PyQt5.QtCore import QModelIndex, Qt
-
 try:
+    import sys
+    from PyQt5.QtWidgets import QApplication, QMainWindow, QTreeView, QFileSystemModel
+    from PyQt5.QtCore import QModelIndex, Qt
+    
     class ExplorerWindow(QMainWindow):
         def __init__(self):
             super().__init__()
