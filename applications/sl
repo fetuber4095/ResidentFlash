@@ -1,0 +1,113 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#  sl
+#  
+#  Copyright 2023 Felipe Souza <lubuntu@lubuntu>
+#  
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#  
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#  MA 02110-1301, USA.
+#  
+#  
+
+class slPackageManager:
+	def __init__(self, cmd):
+		if self.loadMirrors():
+			if cmd != "":
+				if cmd.startswith("install"): self.install(replace(cmd))
+				elif cmd.startswith("remove"): self.remove(replace(cmd))
+				
+				elif cmd.startswith("update"): self.updateMirrors()
+				
+				elif cmd.startswith("list"): self.installed()
+				elif cmd.startswith("avaliable"): self.avaliable()
+				elif cmd.startswith("search"): self.search(replace(cmd))
+				elif cmd.startswith("help") or cmd.startswith("--help"): standart("help sl")
+				
+				else: print(f"ash: sl: {cmd.split()[0]}: operation not found")
+			else: missing("sl")
+			
+		else: print(f"ash: sl: fail to attemp dpkg mirrors [Error 86]")
+
+	# Mirrors control functions	
+	def loadMirrors(self):
+		try: self.mirror = json.load(open(f"{root}/var/sl.json", "r"))
+		except FileNotFoundError: 
+			if self.downloadMirrors(): 
+				self.loadMirrors(), print(f"ash: sl: fixed missing mirrors file. running\n\n")
+				
+				return True
+			return False
+		
+		return True
+	def downloadMirrors(self):
+		try: urllib.request.urlretrieve(vmlinux['sl-mirror'], f"{root}/var/sl.json")
+		except: return False
+		
+		return True
+	def updateMirrors(self):
+		if self.downloadMirrors():
+			mirror = json.load(open(f"{root}/var/sl.json", "r"))
+
+			if mirror == self.mirror:
+				print("ash: sl: mirrors already updated. return tomorrow")
+				return
+			
+			print("ash: sl: mirrors updated")
+			print("ash: sl: try 'sl avaliable' to see the released packages")
+		else: print("ash: sl: fail to update dpkg mirrors [Error 41]")
+	
+	# Basic (Sl) Functions
+	def install(self, package):
+		if package != "":
+			if package in self.mirror:
+				if wget(self.mirror[package], f"{root}/proc/lib/{package}"): print(f"ash: sl: '{package}' installed")
+				else: print("ash: sl: fail to install/ download package")
+			else: print(f"ash: sl: {package}: package not found")
+			
+		else: print("ash: sl: missing package name")
+	def remove(self, package):
+		if package != "": 
+			if package in os.listdir(f"{root}/proc/lib"): os.remove(f"{root}/proc/lib/{package}"), print(f"ash: sl: '{package}' removed")
+			else: print(f"ash: sl: {package}: package not installed")
+		else: print("ash: sl: missing package name")
+	
+	# Special (Sl Function)
+	def installed(self):
+		packages = os.listdir(f"{root}/proc/lib")
+		
+		print(f"{len(packages)} packages installed. listing:\n")
+		for package in packages: print(f"    \033[32m{package}\033[m/local-dpkg [amd64] {system}")
+	def search(self, package):
+		if package != "":
+			results = []
+			
+			for cache in self.mirror: 
+				if package in cache: results.append(cache)
+				
+			if results != []:
+				print(f"{len(results)} was founded with '{package}'. listing:\n")
+				
+				for cache in results: print(f"    \033[32m{cache}\033[m/release [amd64] mirror-dpkg from[{self.mirror[cache]}]")
+								
+			else: print("ash: sl: no packages founded")
+			
+		else: print("ash: sl: missing package name")
+	def avaliable(self):
+		print(f"{len(self.mirror)} packages was released. listing:\n")	
+		
+		for cache in self.mirror: print(f"    \033[32m{cache}\033[m/release [amd64] mirror-dpkg from[{self.mirror[cache]}]")
+	
+slPackageManager(cmd)
