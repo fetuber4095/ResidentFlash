@@ -36,6 +36,6 @@ if cmd != "":
     elif "-v" in cmd: print(platform.version())
     elif "-m" in cmd: print(platform.machine())
 
-    else: print(system, release)
+    else: print(platform.system(), platform.release())
         
-else: print(system, release)
+else: print(platform.system(), platform.release())
