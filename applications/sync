@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#  sync
+#  
+#  Copyright 2023 Felipe Souza <lubuntu@lubuntu>
+#  
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#  
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#  MA 02110-1301, USA.
+#  
+#  
+
+if wget(vmlinux['mirror'], f"{root}/var/versions.json"):
+	with open(f"{root}/var/versions.json", "r") as file:
+		file = json.loads(file.read())
+		
+		for release in file:
+			if release == version: print(f"ash: {appname} is updated")
+			
+			else:
+				if wget(file[release], f"{appname}-{release}.zip"):
+					print(f"The new released version was downloaded.\n")
+					print(f"Installed version: {vmlinux['version']}")
+					print(f"Avaliable version: {release}")
+					print(f"")
+					print(f"Extract '{appname}-{release}.zip' and overwrite files to update")
+					print(f"After update run command 'intro' to view the release notes")
+				else: print(f"ash: sync: fail to donwload update package")
+else: print("ash: sync: fail to donwload server informations")
