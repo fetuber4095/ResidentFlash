@@ -1,10 +1,8 @@
 {
-  "cal": "https://github.com/fetuber4095/ResidentFlash/raw/main/packages/cal",
   "colors": "https://github.com/fetuber4095/ResidentFlash/raw/main/packages/colors",
   "dpkg": "https://github.com/fetuber4095/ResidentFlash/raw/main/packages/dpkg",
   "dd": "https://github.com/fetuber4095/ResidentFlash/raw/main/packages/dd",
   "df": "https://github.com/fetuber4095/ResidentFlash/raw/main/applications/df",
-  "explorer": "https://github.com/fetuber4095/ResidentFlash/raw/main/packages/explorer",
   "rem": "https://github.com/fetuber4095/ResidentFlash/raw/main/packages/rem",
   "rtool": "https://github.com/fetuber4095/ResidentFlash/raw/main/packages/rtool", 
   "uname": "https://github.com/fetuber4095/ResidentFlash/raw/main/applications/uname"
