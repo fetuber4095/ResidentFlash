@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  help
+#  man
 #  
 #  Copyright 2023 Felipe Souza <lubuntu@lubuntu>
 #  
@@ -24,8 +24,8 @@
 
 if cmd != "":
 	try:
-		with open(f"{root}/proc/docs/{cmd}.help", "r") as help_text:
+		with open(f"{root}/proc/docs/{cmd}", "r") as help_text:
 			print(recognize(help_text.read()))
 			
-	except FileNotFoundError: print(f"ash: help: help file not found")
-else: standart("help ash")
+	except FileNotFoundError: print(f"ash: man: {cmd}: page not found")
+else: standart("man intro")
