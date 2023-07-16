@@ -1,0 +1,46 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#  netman.py
+#  
+#  Copyright 2023 Felipe Souza <lubuntu@lubuntu>
+#  
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#  
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#  MA 02110-1301, USA.
+#  
+#  Remake do primeiro pacote desenvolvido do Standart (MEU EMULADOR QUERIDO! <3)
+#  Nota: 'news' tambem roda no python padrao
+
+import urllib.request
+import json
+
+def mostrar_noticias():
+    API_KEY = '113c10ad8fea426cb093fc767d82329f'
+
+    url = f'https://newsapi.org/v2/top-headlines?country=br&apiKey={API_KEY}'
+    response = urllib.request.urlopen(url)
+
+    # Lê a resposta da API
+    data = response.read().decode('utf-8')
+    noticias = json.loads(data)
+
+    # Exibe as notícias no terminal
+    for idx, artigo in enumerate(noticias['articles'], start=1):
+        print(f"Notícia {idx}:")
+        print(f"Título: {artigo['title']}")
+        print(f"Fonte: {artigo['source']['name']}")
+        print("")
+
+mostrar_noticias()
