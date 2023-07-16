@@ -12,7 +12,7 @@ After install I recommend you use tree commands everyday after use:
 - `sl update` Update mirrors for sl (Standart Listback) package manager
 
 ## Commands
-Available commands for Standart v1.2
+Available commands for Standart v1.5.1
 
 - `alias [name - command]` Create aliases
 - `exit` Quit from Terminal
@@ -40,6 +40,7 @@ Available commands for Standart v1.2
 - `install [filename]` Install your python code as a Standart Package
 - `help [document]` Show help document 
 - `mail` Show announcements from development team
+- `reload` Reload all services of vmlinux
 
 ## Interactive Colors on Terminal
 If you're trying use colors on Terminal, Standart have this function,
