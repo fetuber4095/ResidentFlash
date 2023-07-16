@@ -34,7 +34,7 @@ class slPackageManager:
 				elif cmd.startswith("list"): self.installed()
 				elif cmd.startswith("avaliable"): self.avaliable()
 				elif cmd.startswith("search"): self.search(replace(cmd))
-				elif cmd.startswith("help") or cmd.startswith("--help"): standart("help sl")
+				elif cmd.startswith("help") or cmd.startswith("--help"): standart("man sl")
 				
 				else: print(f"ash: sl: {cmd.split()[0]}: operation not found")
 			else: missing("sl")
@@ -73,14 +73,14 @@ class slPackageManager:
 	def install(self, package):
 		if package != "":
 			if package in self.mirror:
-				if wget(self.mirror[package], f"{root}/proc/lib/{package}"): print(f"ash: sl: '{package}' installed")
+				if wget(self.mirror[package], f"{root}/proc/lib/{package}"): print(f"ash: sl: package '{package}' installed")
 				else: print("ash: sl: fail to install/ download package")
 			else: print(f"ash: sl: {package}: package not found")
 			
 		else: print("ash: sl: missing package name")
 	def remove(self, package):
 		if package != "": 
-			if package in os.listdir(f"{root}/proc/lib"): os.remove(f"{root}/proc/lib/{package}"), print(f"ash: sl: '{package}' removed")
+			if package in os.listdir(f"{root}/proc/lib"): os.remove(f"{root}/proc/lib/{package}"), print(f"ash: sl: package '{package}' removed")
 			else: print(f"ash: sl: {package}: package not installed")
 		else: print("ash: sl: missing package name")
 	
