@@ -28,4 +28,11 @@ if cmd != "":
 			print(recognize(help_text.read()))
 			
 	except FileNotFoundError: print(f"ash: man: {cmd}: page not found")
-else: standart("man intro")
+else: 
+	try:
+		docs = os.listdir(f"{root}/proc/docs")
+
+		print(f"{appname} v{version} - Manual pages:\n")
+		for page in docs: print(f"    {page}")
+
+	except Exception as traceback: print("ash: man: failed to list manual pages.")
