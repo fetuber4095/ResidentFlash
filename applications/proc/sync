@@ -33,9 +33,8 @@ if wget(vmlinux['mirror'], f"{root}/var/versions.json"):
 				if wget(file[release], f"{appname}-{release}.zip"):
 					print(f"The new released version was downloaded.\n")
 					print(f"Installed version: {vmlinux['version']}")
-					print(f"Avaliable version: {release}")
-					print(f"")
+					print(f"Avaliable version: {release}\n")
 					print(f"Extract '{appname}-{release}.zip' and overwrite files to update")
 					print(f"After update run command 'intro' to view the release notes")
-				else: print(f"ash: sync: fail to donwload update package")
-else: print("ash: sync: fail to donwload server informations")
+				else: print(f"{sh}: sync: fail to donwload update package")
+else: print(f"{sh}: sync: fail to donwload server informations")
