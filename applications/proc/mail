@@ -31,11 +31,11 @@ class StandartMail:
 			print(f"----------------------------------------------------------\n")
 			print(f"{self.mail['content']}\n\n")
 			print(f"> {self.mail['signature']}")
-		
+		else: print(f"{sh}: mail: fail to connect with server.")
 		
 	def openMailFile(self):
-		if wget("https://github.com/fetuber4095/ResidentFlash/raw/main/mail.json", f"{root}/var/mail.json"):
-			with open(f"{root}/var/mail.json", "r") as cache:
+		if wget("https://github.com/fetuber4095/ResidentFlash/raw/main/mail.json", f"{root}/tmp/mail.json"):
+			with open(f"{root}/tmp/mail.json", "r") as cache:
 				self.mail = json.load(cache)
 				
 				return True
