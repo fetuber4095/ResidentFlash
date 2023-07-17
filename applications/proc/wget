@@ -31,7 +31,7 @@ if url != "":
 	except: output_file = input("filename: ").strip()
 	
 	if output_file != "": 
-		if wget(url, output_file): print(f"{appname.lower()}: wget: donwloaded {output_file}")
-		else: print(f"ash: wget: donwload failed [Errno 309]")
-	else: print(f"ash: wget: invalid filename")
-else: print(f"ash: wget: no url specified")
+		if wget(url, output_file): print(f"{sh}: wget: donwloaded {output_file}")
+		else: print(f"{sh}: wget: donwload failed [Errno 309]")
+	else: print(f"{sh}: wget: invalid filename")
+else: print(f"{sh}: wget: no url specified")
