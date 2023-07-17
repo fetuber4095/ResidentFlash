@@ -26,7 +26,7 @@ def df():
     if os.name == "posix": df_output = os.popen("df -h").read()
     elif os.name == "nt": df_output = os.popen("wmic logicaldisk get deviceid,size,freespace").read()
     else:
-        print("ash: df: operatioonal system not supported")
+        print(f"{sh}: df: operatioonal system not supported")
         return
 
     lines = df_output.strip().split("\n")
@@ -47,4 +47,3 @@ def df():
         print("\t".join(row))
 
 df()
-
