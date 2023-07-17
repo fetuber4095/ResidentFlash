@@ -24,11 +24,7 @@
 
 if cmd != "":
     if "-a" in cmd:
-        print(f"System: {platform.system()}")
-        print(f"Node: {platform.node()}")
-        print(f"Release: {platform.release()}")
-        print(f"Version: {platform.version()}")
-        print(f"Machine: {platform.machine()}")
+        print(f"{platform.system()} {platform.node()} {platform.release()} {platform.version()} {platform.machine()}")
         
     elif "-s" in cmd: print(platform.system())
     elif "-n" in cmd: print(platform.node())
