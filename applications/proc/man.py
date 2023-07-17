@@ -27,12 +27,12 @@ if cmd != "":
 		with open(f"{root}/proc/docs/{cmd}", "r") as help_text:
 			print(recognize(help_text.read()))
 			
-	except FileNotFoundError: print(f"ash: man: {cmd}: page not found")
+	except FileNotFoundError: print(f"{sh}: man: {cmd}: page not found")
 else: 
 	try:
 		docs = os.listdir(f"{root}/proc/docs")
 
-		print(f"{appname} v{version} - Manual pages:\n")
+		print(recognize(f"&blue&bold{appname} v{version} - Manual pages:&non-style\n"))
 		n = 1
 		for page in docs: 
 			print(f"\t{page}", end="")
@@ -44,4 +44,4 @@ else:
 			
 			n = n + 1
 
-	except Exception as traceback: print("ash: man: failed to list manual pages.")
+	except Exception as traceback: print(f"{sh}: man: failed to list manual pages.")
