@@ -1,11 +1,11 @@
 {
-  "title": "I return and 1.5 is comming",
-  "subject": "A update is comming, and it...",
+  "title": "ASH will be removed ;>",
+  "subject": "This is a new future for Standart",
 
   "from": "(Owner) Felipe Souza",
-  "date": "Sun Jul 16 17:28:22 2023",
+  "date": "Mon Jul 17 18:11:21 2023",
   "to": "Standart users",
   
-  "content": "Standart 1.5 will end with project of pyutils\nand bring more updates on extruture and detect\nif command is a package or does not exists.",
+  "content": "In release 1.6, I will remove completally ash and replace by\ngsh (Python General Shell) that promisse be more powerful and reduce bugs,\nit will be came for packages and others resources.",
   "signature": "FeTuber4095"
 }
