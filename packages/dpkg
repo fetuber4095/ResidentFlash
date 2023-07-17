@@ -26,30 +26,29 @@ class dpkg:
     def __init__(self, package):
         if self.loadMirrors():
             if package != "": self.get_package(package)            
-            else: print("ash: dpkg: missing package name")
-        else: print(f"ash: dpkg: fail to attempt dpkg mirrors [Error 86]")
+            else:print(f"{sh}: dpkg: missing package name")
+        else: print(f"{sh}: dpkg: fail to attempt dpkg mirrors [Error 86]")
 
     def loadMirrors(self):
         try: self.mirror = json.load(open(f"{root}/var/sl.json", "r"))
         except FileNotFoundError:
             if self.downloadMirrors():
-                print(f"ash: dpkg: fixed missing mirrors file. running")
-
-                return self.loadMirrors()
+                print(f"{sh}: dpkg: fixed missing mirrors file. running")
+                return True
             return False
 
         return True
 
     def downloadMirrors(self):
-        try: urllib.request.urlretrieve(vmlinux['sl-mirror'], f"{root}/var/sl.json")
+        try: urllib.request.urlretrieve(self.mirror['sl-mirror'], f"{root}/var/sl.json")
         except: return False
 
         return True
 
     def get_package(self, package):
         if package in self.mirror:
-            if urllib.request.urlretrieve(self.mirror[package], f"{package}"): print(f"ash: dpkg: '{package}' downloaded.")
-            else:  print(f"ash: dpkg: fail to download package")
-        else: print(f"ash: dpkg: {package}: package not found")
+            if urllib.request.urlretrieve(self.mirror[package], f"{package}"): print(f"{sh}: dpkg: package '{package}' downloaded.")
+            else: print(f"{sh}: dpkg: fail to download package")
+        else: print(f"{sh}: dpkg: '{package}' not found")
 
 dpkg(cmd)
