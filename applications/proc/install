@@ -23,4 +23,4 @@
 #  
 
 if cmd != "": shutil.copy(cmd, f"{root}/proc/lib/{cmd}")
-else: print("ash: install: missing package file")
+else: print(f"{sh}: install: missing package file")
