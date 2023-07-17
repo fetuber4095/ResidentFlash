@@ -33,6 +33,15 @@ else:
 		docs = os.listdir(f"{root}/proc/docs")
 
 		print(f"{appname} v{version} - Manual pages:\n")
-		for page in docs: print(f"    {page}")
+		n = 1
+		for page in docs: 
+			print(f"\t{page}", end="")
+
+			if n == 3: 
+				print("")
+
+				n = 0
+			
+			n = n + 1
 
 	except Exception as traceback: print("ash: man: failed to list manual pages.")
