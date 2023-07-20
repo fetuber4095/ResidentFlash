@@ -44,5 +44,5 @@ def verificar_ram():
 if os.name != "posix": print("rtool: application released only at Linux Systems")
 else:
 	while True:
-		try: os.system("clear"), run = verificar_ram(),time.sleep(0.6)
+		try: os.system("clear"), verificar_ram(), time.sleep(0.6)
 		except (KeyboardInterrupt, EOFError): break
