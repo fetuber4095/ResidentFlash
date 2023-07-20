@@ -27,10 +27,6 @@ import subprocess
 import os, time
 
 def verificar_ram():
-	if os.name != "posix":
-		print("rtool: application released only at Linux Systems")
-		return False
-
 	resultado = subprocess.run(['free', '-m'], capture_output=True, text=True)
 	saida = resultado.stdout.strip().split('\n')
 	cabecalho = saida[0].split()
@@ -45,7 +41,8 @@ def verificar_ram():
 	print(f"Used:      {ram_usada} MB")
 	print(f"Free:      {ram_livre} MB")
 
-while True:
-	try: os.system("clear"), verificar_ram(), time.sleep(0.6)
-	except (KeyboardInterrupt, EOFError): break
-
+if os.name != "posix": print("rtool: application released only at Linux Systems")
+else:
+	while True:
+		try: os.system("clear"), run = verificar_ram(),time.sleep(0.6)
+		except (KeyboardInterrupt, EOFError): break
