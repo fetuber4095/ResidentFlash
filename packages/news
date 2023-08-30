@@ -23,6 +23,9 @@
 #  Remake do primeiro pacote desenvolvido do Standart (MEU EMULADOR QUERIDO! <3)
 #  Nota: 'news' tambem roda no python padrao
 
+
+global urllib, json
+
 import urllib.request
 import json
 
